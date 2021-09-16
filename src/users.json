@@ -1,0 +1,22 @@
+{
+  "users": [
+    
+    {
+      "user": {
+        "username": "Suraj",
+        "Email": "surajmn98@gmail.com",
+        "Birthday": "2021-09-30",
+        "password": "#good",
+        "remember": true,
+        "Fathersname": "raju",
+        "Mothersname": "swetha",
+        "Age": 23,
+        "Department": "mech",
+        "Gender": "Male",
+        "Address": "begumpet",
+        "pincode": 500017
+      },
+      "id": 1
+    }
+  ]
+}

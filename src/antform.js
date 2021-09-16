@@ -1,41 +1,38 @@
-import {  Form, Input, Button, Checkbox, DatePicker  } from 'antd';
-import "./antform.css"
+import { Form, Input, Button, Checkbox, DatePicker } from "antd";
+import "./antform.css";
 import { useHistory } from "react-router-dom";
-import { Space } from 'antd';
+import { Space } from "antd";
 import { useState } from "react";
-  
 
-export default function Antform(){
-  
-  const [state, setState] = useState({})
-  
+export default function Antform() {
+  const [state, setState] = useState({});
+
   const onFinish = (value) => {
-    console.log('Success:');
+    console.log("Success:");
     console.table(value);
     const values = {
       ...value,
-      'Birthday': value['Birthday'].format('YYYY-MM-DD')}
-      console.table(values);
-      setState(values)
+      Birthday: value["Birthday"].format("YYYY-MM-DD"),
+    };
+    console.table(values);
+    alert("user registered click on next");
+    setState(values);
   };
   const history = useHistory();
 
-  
   function handleClick(path) {
-    console.log('here');
-     console.table(state)
-    history.push(path,state)
+    console.log("here");
+    console.table(state);
+    history.push(path, state);
   }
-  
-  
-  
-  
+
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
 
   return (
-    <Form   className="center"
+    <Form
+      className="center"
       name="basic"
       labelCol={{
         span: 8,
@@ -56,7 +53,7 @@ export default function Antform(){
         rules={[
           {
             required: true,
-            message: 'Please input your username!',
+            message: "Please input your username!",
           },
         ]}
       >
@@ -69,12 +66,11 @@ export default function Antform(){
         rules={[
           {
             required: true,
-            message: 'Please input your Email',
+            message: "Please input your Email",
           },
         ]}
       >
         <Input />
-      
       </Form.Item>
       <Form.Item
         label="Birthday"
@@ -82,18 +78,14 @@ export default function Antform(){
         rules={[
           {
             required: true,
-            message: 'Please input your Birthday',
+            message: "Please input your Birthday",
           },
         ]}
       >
-       
-       
-     <DatePicker style={{ width: '100%' }} />
-    
+        <DatePicker style={{ width: "100%" }} />
 
-    {/* <Input.Date/> */}
+        {/* <Input.Date/> */}
       </Form.Item>
-
 
       <Form.Item
         label="Password"
@@ -101,7 +93,7 @@ export default function Antform(){
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: "Please input your password!",
           },
         ]}
       >
@@ -126,15 +118,17 @@ export default function Antform(){
         }}
       >
         <Space size="middle">
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-        <Button   htmlType="button" onClick={() => handleClick("antAdditionaldetails")}>
-           Next
-          </Button> </Space>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+          <Button
+            htmlType="button"
+            onClick={() => handleClick("antAdditionaldetails")}
+          >
+            Next
+          </Button>{" "}
+        </Space>
       </Form.Item>
     </Form>
   );
-};
-
-
+}
