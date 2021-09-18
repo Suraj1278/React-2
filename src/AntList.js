@@ -1,44 +1,123 @@
 import React from "react";
-
 import axios from "axios";
+import {  Button  } from "antd"
+import  { useState, useEffect } from 'react';
+import "./Antlist.css"
 
-export default class PersonList extends React.Component {
-  state = {
-    persons: [],
-  };
 
-  componentDidMount() {
+import {List, Typography} from "antd";
+
+export default function PersonList() {
+  
+  const[persons,setstate] = useState([])
+  
+  
+  
+  
+  
+
+  useEffect(() => {
     axios.get(`http://localhost:3000/users`).then((res) => {
-      const persons = res.data;
-      console.table(persons);
-      this.setState({ persons });
-      console.log("i am here 3");
-      console.log(persons[0]);
+      const personsx = res.data;
+      console.table(personsx);
+      setstate(personsx);
+      
+      
     });
-  }
+  },[]); 
+ 
 
-  render() {
-    return (
-      <ul>
-        {this.state.persons.map((person) => (
-          <li>
-            {" "}
-            {person.user.username} details
-            <ul>
-              {" "}
-              <li>Email : {person.user.Email}</li>
-              <li> DOB : {person.user.Birthday}</li>
-              <li>Father's name : {person.user.Fathersname}</li>
-              <li> Mother's name : {person.user.Mothersname}</li>
-              <li> Age : {person.user.Age}</li>
-              <li> Department : {person.user.Department}</li>
-              <li>Gender: {person.user.Gender}</li>
-              <li> Address : {person.user.Address}</li>
-              <li> Pincode : {person.user.pincode}</li>
-            </ul>
-          </li>
-        ))}
-      </ul>
+  return (
+    <div> 
+        <List
+          header={<div>Users</div>}
+       
+          bordered
+          dataSource= {persons.map((person) => person.user.username )}
+          renderItem={(item,index) => (
+            
+           <List.Item >
+              {item} 
+             <span> </span>
+             
+         <Address person={persons[index]}> </Address>
+          <span>           </span>
+           <Personaldetails  person={persons[index]}> </Personaldetails>
+           </List.Item>
+          )}
+        />  
+         </div>
+      
+      
+
+
     );
   }
+
+
+function Address (props){
+    console.table(props.person)
+    console.log(props.person.user.Address)
+    const [isOpened, setIsOpened] = useState(false);
+
+  function toggle() {
+    setIsOpened(wasOpened => !wasOpened);
+  }
+    return (
+        <>
+     <Button onClick={()=>toggle()} > Address </Button>
+        
+     {isOpened && (
+         <table>
+         <th>Address</th>
+         <th>pincode</th>
+     <tr>  <td>  <Typography.Text >{props.person.user.Address}</Typography.Text > </td>
+     <td>  <Typography.Text >{props.person.user.pincode} </Typography.Text > </td> </tr>
+     </table>
+      )}
+    </>
+);
+}
+
+function Personaldetails (props){
+   
+    
+    const [isOpened, setIsOpened] = useState(false);
+
+  function toggle() {
+    setIsOpened(wasOpened => !wasOpened);
+  }
+    return (
+        <>
+    <Button onClick={()=>toggle()} > Personaldetails </Button>
+        
+     {isOpened && (
+        <table>
+    <th>Fathersname</th>
+    <th>Mothersname</th>
+    <th>Email</th>
+    <th>Birthday</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Department</th>
+
+      <tr> <td>  <Typography.Text >{props.person.user.Fathersname}</Typography.Text >  </td> 
+       
+       <td>  <Typography.Text >{props.person.user.Mothersname}</Typography.Text ></td> 
+        
+       <td>     <Typography.Text >{props.person.user.Email} </Typography.Text > </td> 
+       
+       <td>  <Typography.Text >{props.person.user.Birthday}</Typography.Text > </td> 
+        
+       <td>     <Typography.Text >{props.person.user.Age} </Typography.Text ></td> 
+         
+       <td>  <Typography.Text >{props.person.user.Gender} </Typography.Text > </td> 
+       
+       <td> <Typography.Text >{props.person.user.Department} </Typography.Text > </td> </tr>
+      </table>
+         
+      )}
+    </>
+
+    );
 }

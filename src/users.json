@@ -1,6 +1,5 @@
 {
   "users": [
-    
     {
       "user": {
         "username": "Suraj",
@@ -17,6 +16,74 @@
         "pincode": 500017
       },
       "id": 1
+    },
+    {
+      "user": {
+        "username": "praveen",
+        "Email": "surajmn98@gmail.com",
+        "Birthday": "2021-09-30",
+        "password": "#good",
+        "remember": true,
+        "Fathersname": "raju",
+        "Mothersname": "swetha",
+        "Age": 23,
+        "Department": "cse",
+        "Gender": "Male",
+        "Address": "begumpet",
+        "pincode": 500017
+      },
+      "id": 1
+    },
+    {
+      "user": {
+        "username": "Malik",
+        "Email": "surajmn98@gmail.com",
+        "Birthday": "2019-09-30",
+        "password": "#good",
+        "remember": true,
+        "Fathersname": "raju",
+        "Mothersname": "swetha",
+        "Age": 23,
+        "Department": "cse",
+        "Gender": "Male",
+        "Address": "begumpet",
+        "pincode": 500017
+      },
+      "id": 1
+    },
+    {
+      "user": {
+        "username": "vani",
+        "Email": "surajmn98@gmail.com",
+        "Birthday": "2021-09-30",
+        "password": "#good",
+        "remember": true,
+        "Fathersname": "raju",
+        "Mothersname": "swetha",
+        "Age": 23,
+        "Department": "cse",
+        "Gender": "female",
+        "Address": "begumpet",
+        "pincode": 500017
+      },
+      "id": 1
+    },
+    {
+      "user": {
+        "username": "Suraj",
+        "Email": "surajmn98@gmail",
+        "Birthday": "2021-09-30",
+        "password": "#ok123",
+        "remember": true,
+        "Fathersname": "pranay",
+        "Mothersname": "kankana",
+        "Age": 24,
+        "Department": "cse",
+        "Gender": "Male",
+        "Address": "tarnaka",
+        "pincode": 50017
+      },
+      "id": 2
     }
   ]
 }
